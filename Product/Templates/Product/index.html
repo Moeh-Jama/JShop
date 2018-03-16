@@ -1,1 +1,18 @@
-<h1>unverified product name</h1>
+{% extends 'Product/Main_Layout.html' %}
+{% block content %}
+    <h1>JSHOP</h1>
+    <!-- List all the items in the Products List. -->
+    <div class="card-deck mb-3 text-center">
+    {% for prod in Product %}
+       <div class="card-body">
+            <h4 class="NameStyle">{{prod.name}}</h4>
+            <a href="product_details/{{prod.id}}/">
+            <div class id="small-container">
+                <img src="{{prod.image}}" height=200 width=250>
+            </div>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}

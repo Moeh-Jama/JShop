@@ -10,3 +10,12 @@ def index(request):
     }
 
     return render(request, 'Product/index.html', context)
+
+
+def product_details(request, id):
+    product = Product.objects.get(id=id)
+    context = {
+        'Product':product
+    }
+    
+    return render(request, 'Product/product_details.html', context)

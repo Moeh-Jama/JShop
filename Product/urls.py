@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from . import views
-
+#Controller for the MVC.
 urlpatterns = [
-    url(r'^$', views.index, name='index')
+    url(r'^$', views.index, name='index'),
+    url(r'^product_details/(?P<id>\d+)/$', views.product_details, name='product_details') #\d should be digit + means 1 or more digits
 ]
