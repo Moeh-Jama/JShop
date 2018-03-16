@@ -1,18 +1,23 @@
 {% extends 'Product/Main_Layout.html' %}
 {% block content %}
-    <h1>JSHOP</h1>
-    <!-- List all the items in the Products List. -->
-    <div class="card-deck mb-3 text-center">
-    {% for prod in Product %}
-       <div class="card-body">
-            <h4 class="NameStyle">{{prod.name}}</h4>
-            <a href="product_details/{{prod.id}}/">
-            <div class id="small-container">
-                <img src="{{prod.image}}" height=200 width=250>
+        <div class="row">
+        {% for prod in Product %}
+        <div class="col-sm-4">
+        <div class="card" style="width: 18rem; margin: 18px; ">
+            <div class="card-body">
+            {% if prod.name|length > 15 %}
+                <h4 class="card-title text-center">{{prod.name|slice:"0:20"}}...
+                </h4>
+            {% else %}
+                <h4 class="card-title text-center">{{prod.name}}</h4>
+            {% endif %}
+                <a href="/Product/product_details/{{prod.id}}/">
+                        <img src="{{prod.image}}" height=200 width=250>
+                </a>
+                <h6 class="card-text">Price: €{{prod.price}}</h6>
             </div>
-            </a>
+            </div>
         </div>
-    {% endfor %}
-    </div>
-
+        {% endfor %}
+        <div>
 {% endblock %}

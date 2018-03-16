@@ -1,8 +1,22 @@
 {% extends 'Product/Main_Layout.html' %}
+{% block title %}{{current_product.name}}{% endblock %}
 {% block content %}
     <div class="Container">
-        <h1>{{Product.name}}</h1>
-        <img src="{{Product.image}}">
-        <h3>Costs: €{{Product.price}}</h3>
+        <h1>{{current_product.name}}</h1>
+        <img src="{{current_product.image}}">
+        <h3>Costs: €{{current_product.price}}</h3>
+    </div>
+    <div class="jumbotron">
+        <h1>Reccomendations</h1>
+        <!--
+        prints out all the products that have the same category as {{current_product.name}}
+        -->
+        {% for product in Product %}
+            {% if product.category == current_product.category %}
+                {% if product.id != current_product.id %}
+                    <h5><a href="/Product/product_details/{{product.id}}/">{{product.name}}</a></h5>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
     </div>
 {% endblock %}

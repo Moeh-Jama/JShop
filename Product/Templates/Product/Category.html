@@ -1,0 +1,21 @@
+{% extends 'Product/Main_Layout.html' %}
+{% block content %}
+    {% for p in Product %}
+        <div class="col-sm-4">
+        <div class="card" style="width: 18rem; margin: 18px; ">
+            <div class="card-body">
+            {% if p.name|length > 15 %}
+                <h4 class="card-title text-center">{{p.name|slice:"0:20"}}...
+                </h4>
+            {% else %}
+                <h4 class="card-title text-center">{{p.name}}</h4>
+            {% endif %}
+                <a href="product_details/{{p.id}}/">
+                        <img src="{{p.image}}" height=200 width=250>
+                </a>
+                <h6 class="card-text">Price: €{{prod.price}}</h6>
+            </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

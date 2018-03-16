@@ -18,5 +18,6 @@ from . import views
 #Controller for the MVC.
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^product_details/(?P<id>\d+)/$', views.product_details, name='product_details') #\d should be digit + means 1 or more digits
+    url(r'^product_details/(?P<id>\d+)/$', views.product_details, name='product_details'), #\d should be digit + means 1 or more digits
+    url(r'/Category/(?P<category>\w+)/$', views.Category, name='index') #\d should be digit + means 1 or more digits
 ]
