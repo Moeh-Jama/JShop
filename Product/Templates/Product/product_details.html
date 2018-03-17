@@ -5,18 +5,27 @@
         <h1>{{current_product.name}}</h1>
         <img src="{{current_product.image}}">
         <h3>Costs: €{{current_product.price}}</h3>
+        <h3>Age Restriction: {{Game_details.Age_Restriction}}</h3>
+        <h5>Published in: {{Game_details.year_of_publish}}</h5>
+        <h5>Developer: {{Game_details.year_of_publish}}</h5>
+        <h5>Game Platform: {{Game_details.Platform}}</h5>
     </div>
-    <div class="jumbotron">
-        <h1>Reccomendations</h1>
-        <!--
-        prints out all the products that have the same category as {{current_product.name}}
-        -->
+    <div class="jumbotron text-center">
+        <h1>Recomendations</h1>
+        <div class="list-group">
         {% for product in Product %}
             {% if product.category == current_product.category %}
                 {% if product.id != current_product.id %}
-                    <h5><a href="/Product/product_details/{{product.id}}/">{{product.name}}</a></h5>
+               
+                    <a class="list-group-item" href="/Product/product_details/{{product.id}}/">
+                    <h4>{{product.name}}</h4>
+                    <img src="{{product.image}}" height=100 width=100>
+                    <h4>Currently at €{{product.price}}</h4>
+                    </a>
+                
                 {% endif %}
             {% endif %}
         {% endfor %}
+        </div>
     </div>
 {% endblock %}

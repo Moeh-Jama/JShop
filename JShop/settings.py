@@ -89,6 +89,14 @@ DATABASES = {
         'PASSWORD':'',
         'HOST':'localhost',
         'PORT':''
+    },
+    'Games':{
+        'ENINGE': 'django.db.backends.mysql',
+        'NAME': 'game_category',
+        'USER': 'root',
+        'PASSWORD':'',
+        'HOST':'localhost',
+        'PORT':''
     }
 }
 

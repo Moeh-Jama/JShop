@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Product
+from .models import Games
 # Create your views here.
 
 def index(request):
@@ -17,7 +18,8 @@ def product_details(request, id):
     product = Product.objects.all()
     context = {
         'current_product': Product.objects.get(id=id),
-        'Product':product
+        'Product':product,
+        'Game_details': Games.objects.get(Game_ID=id)
     }
     
     return render(request, 'Product/product_details.html', context)
